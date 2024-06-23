@@ -1,0 +1,13 @@
+import "./App.css";
+import Sidebar from "./sidebar/Sidebar";
+import Homepage from "./Homepage";
+
+function App() {
+  return (
+    <div>
+      <Homepage />
+    </div>
+  );
+}
+
+export default App;
