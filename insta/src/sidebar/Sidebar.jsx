@@ -9,7 +9,19 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Avatar } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUser } from "../store/userSlice";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
 const Sidebar = () => {
+  const user = useSelector((state) => state.user.user);
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
+    signOut(auth);
+  };
+
   return (
     <div className={styles["sidebar"]}>
       <img
@@ -45,6 +57,17 @@ const Sidebar = () => {
         <button className={styles["sidebar_button"]}>
           <AddCircleOutlineIcon />
           <span>Create</span>
+        </button>
+        <button className={styles["sidebar_button"]}>
+          <Avatar>
+            {user.username ? user.username.charAt(0).toUpperCase() : "A"}
+          </Avatar>
+          <span>
+            {user.username}
+            <button onClick={handleLogout} className={styles.logout__button}>
+              Logout
+            </button>
+          </span>
         </button>
       </div>
 

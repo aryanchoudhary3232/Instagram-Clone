@@ -46,3 +46,18 @@ margin-left: 10px;
   align-items: center;
   /* margin-left: 12px; */
 }
+
+.logout__button {
+  font-size: 15px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.211);
+  border: 0;
+  padding: 10px;
+}
+
+.logout__button:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.424);
+}
